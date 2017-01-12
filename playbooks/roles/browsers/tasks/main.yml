@@ -22,8 +22,10 @@
   shell: echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
 
 - name: install google chrome
-  apt: pkg=google-chrome-stable
-       state=present update_cache=yes
+  apt:
+    name: google-chrome-stable
+    update_cache: yes
+    state: present
 
 - name: download ChromeDriver
   get_url:
