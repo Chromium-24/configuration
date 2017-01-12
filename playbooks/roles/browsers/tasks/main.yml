@@ -15,12 +15,15 @@
   when: download_deb.changed
   with_items: "{{ browser_s3_deb_pkgs }}"
 
-# Because the source location has been deprecated, we need to
-# ensure it does not interfere with subsequent apt commands
-#- name: remove google chrome debian source list
-#  file:
-#    path: /etc/apt/sources.list.d/google-chrome.list
-#    state: absent
+- name: add apt key for google chrome repos
+  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+
+- name: add google chrome repository to source lists
+  shell: echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+- name: install google chrome
+  apt: pkg=google-chrome-stable
+       state=present update_cache=yes
 
 - name: download ChromeDriver
   get_url:

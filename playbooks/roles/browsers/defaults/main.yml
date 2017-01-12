@@ -7,7 +7,6 @@ browser_deb_pkgs:
     - libcurl3
     - xdg-utils
     - gdebi
-    - google-chrome-stable
 
 # Debian packages we host in S3 to ensure correct browser version
 # Both Chrome and FireFox update their apt repos with the latest version,
