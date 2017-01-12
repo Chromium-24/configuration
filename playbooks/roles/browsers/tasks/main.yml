@@ -17,10 +17,10 @@
 
 # Because the source location has been deprecated, we need to
 # ensure it does not interfere with subsequent apt commands
-- name: remove google chrome debian source list
-  file:
-    path: /etc/apt/sources.list.d/google-chrome.list
-    state: absent
+#- name: remove google chrome debian source list
+#  file:
+#    path: /etc/apt/sources.list.d/google-chrome.list
+#    state: absent
 
 - name: download ChromeDriver
   get_url:
