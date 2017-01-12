@@ -208,3 +208,6 @@
 - Role: edxapp
   - Added `XQUEUE_RABBITMQ_VHOST` to allow configuring the xqueue RabbitMQ host.
   - Added `XQUEUE_RABBITMQ_PORT` and `XQUEUE_RABBITMQ_TLS` to allow configuring the RabbitMQ port, and enabling TLS respectively.
+
+- Role: credentials
+  - Added `EXTRA_APPS` to enable the inclusion of additional Django apps in the Credentials Service.
